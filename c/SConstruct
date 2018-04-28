@@ -1,0 +1,17 @@
+import os, sys, re, string, time
+sys.path.append('../src')
+import bldutil
+
+try:  # distributed version
+    Import('env')
+    env = env.Clone()
+except: # local version
+    env = bldutil.Debug()
+    root = None
+
+src = Glob('[a-z]*.c')
+for source in src:
+    inc = env.Include(source, prefix='')
+    obj = env.StaticObject(source)
+
+Library('chlwang', Glob('[a-z]*.o'))
