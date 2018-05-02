@@ -1,0 +1,21 @@
+import os, sys, re, string, time
+sys.path.append('../src')
+import bldutil_cu
+
+try:
+    Import('env')
+    env = env.Clone()
+except:
+    env = bldutil_cu.Debug()
+    root = None
+
+env.Tool('nvcc', toolpath = ['../src'])
+env.Append(LIBPATH = ['/usr/local/cuda-9.0/lib'])
+
+src = Glob('[a-z]*.cu')
+
+for source in src:
+    inc = env.Include(source, prefix='')
+    obj = env.StaticObject(source)
+
+Library('chlwcuda', Glob('[a-z]*.o'))

@@ -1,0 +1,5 @@
+*.o
+*.a
+*.pyc
+.sconsign
+*.xml
