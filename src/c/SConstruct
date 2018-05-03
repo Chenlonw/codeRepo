@@ -1,5 +1,5 @@
 import os, sys, re, string, time
-sys.path.append('../src')
+sys.path.append('../../build')
 import bldutil
 
 try:  # distributed version

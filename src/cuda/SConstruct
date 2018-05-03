@@ -1,5 +1,5 @@
 import os, sys, re, string, time
-sys.path.append('../src')
+sys.path.append('../../build')
 import bldutil_cu
 
 try:
@@ -9,7 +9,7 @@ except:
     env = bldutil_cu.Debug()
     root = None
 
-env.Tool('nvcc', toolpath = ['../src'])
+env.Tool('nvcc', toolpath = ['../../build'])
 env.Append(LIBPATH = ['/usr/local/cuda-9.0/lib'])
 
 src = Glob('[a-z]*.cu')
