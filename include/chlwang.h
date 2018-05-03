@@ -3,6 +3,70 @@
 #ifndef _chlwang_h
 #define _chlwang_h
 
+void read_float_1d(const char *file, float *a, int nx);
+/*<write 1D float document>*/
+
+
+void write_float_1d(const char *file, float *a, int nx);
+/*<write 1D float document>*/
+
+
+void read_float_2d(const char* file, float** a, int nx, int nz);
+/*<read 2D float document>*/
+
+
+void write_float_2d(const char* file, float** a, int nx, int nz);
+/*<write 2D float document>*/
+
+
+void read_float_3d(const char* file, float*** a, int nx, int ny, int nz);
+/*<read 3D float document>*/
+
+
+void write_float_3d(const char* file, float*** a, int nx, int ny, int nz);
+/*<write 3D float document>*/
+
+
+bool file_exists(char *filename);
+/*<Checking if a file with filename exists.>*/
+
+
+bool dir_exists(char *dirname);
+/*<Checking if a directory with dirname exists.>*/
+
+
+unsigned long count_lines_of_file(const char *file_patch);
+/*<Returns number of lines in an ascii file.>*/
+
+
+int getnlines(char *filename);
+/*<Getting number of lines from file.>*/
+
+
+int num_digit(const int n);
+/*<Finding the number of digits in an integer using simple but efficient method.>*/
+
+
+void utils_print_title(const char *title);
+/*<Printing out program title to terminal.>*/
+
+
+void utils_loadbar(int x, int n, int r, int w);
+/*<Prints progress bar on terminal>*/
+
+
+float utils_max(const float *v, const int n);
+/*<Finding the maximum of a vector v with size n.>*/
+
+
+float utils_min(const float *v, const int n);
+/*<Finding the minimum of a vector v with size n.>*/
+
+
+FILE *sfopen(const char *fn, const char *stat);
+/*<safely open the files>*/
+
+
 void *alloc1 (size_t n1, size_t size);
 /*< allocate a 1-d array >*/
 
@@ -137,69 +201,5 @@ void zero_float_3d(float ***a, int n1, int n2, int n3);
 
 void zero_double_3d(double ***a, int n1, int n2, int n3);
 /*<zero 2D double document n1 is the fast axis>*/
-
-
-FILE *sfopen(const char *fn, const char *stat);
-/*<safely open the files>*/
-
-
-void read_float_1d(const char *file, float *a, int nx);
-/*<write 1D float document>*/
-
-
-void write_float_1d(const char *file, float *a, int nx);
-/*<write 1D float document>*/
-
-
-void read_float_2d(const char* file, float** a, int nx, int nz);
-/*<read 2D float document>*/
-
-
-void write_float_2d(const char* file, float** a, int nx, int nz);
-/*<write 2D float document>*/
-
-
-void read_float_3d(const char* file, float*** a, int nx, int ny, int nz);
-/*<read 3D float document>*/
-
-
-void write_float_3d(const char* file, float*** a, int nx, int ny, int nz);
-/*<write 3D float document>*/
-
-
-bool file_exists(char *filename);
-/*<Checking if a file with filename exists.>*/
-
-
-bool dir_exists(char *dirname);
-/*<Checking if a directory with dirname exists.>*/
-
-
-unsigned long count_lines_of_file(const char *file_patch);
-/*<Returns number of lines in an ascii file.>*/
-
-
-int getnlines(char *filename);
-/*<Getting number of lines from file.>*/
-
-
-int num_digit(const int n);
-/*<Finding the number of digits in an integer using simple but efficient method.>*/
-
-
-void utils_print_title(const char *title);
-/*<Printing out program title to terminal.>*/
-
-
-void utils_loadbar(int x, int n, int r, int w);
-/*<Prints progress bar on terminal>*/
-
-
-float utils_max(const float *v, const int n);
-/*<Finding the maximum of a vector v with size n.>*/
-
-
-float utils_min(const float *v, const int n);
-/*<Finding the minimum of a vector v with size n.>*/
 
 #endif 
