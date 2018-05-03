@@ -1,5 +1,5 @@
 scons -c
 scons -Q
 python combine.py
-mv libchlwang.a ../lib
-mv chlwang.h ../include
+mv libchlwang.a ../../lib
+mv chlwang.h ../../include
