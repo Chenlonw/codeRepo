@@ -143,10 +143,6 @@ FILE *sfopen(const char *fn, const char *stat);
 /*<safely open the files>*/
 
 
-__device__ int getGlobalIdx_1D_1D();
-/*< device get GlobalIdx with 1D grid 1D block >*/
-
-
 void read_float_1d(const char *file, float *a, int nx);
 /*<write 1D float document>*/
 
