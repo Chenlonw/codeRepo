@@ -7,10 +7,6 @@ void *alloc1 (size_t n1, size_t size);
 /*< allocate a 1-d array >*/
 
 
-void *realloc1(void *v, size_t n1, size_t size);
-/*< re-allocate a 1-d array >*/
-
-
 void free1 (void *p);
 /*< free a 1-d array >*/
 
@@ -31,351 +27,179 @@ void free3 (void ***p);
 /*< free a 3-d array >*/
 
 
-void ****alloc4 (size_t n1, size_t n2, size_t n3, size_t n4, size_t size);
-/*< allocate a 4-d array >*/
-
-
-void free4 (void ****p);
-/*< free a 4-d array >*/
-
-
-int *alloc1int(size_t n1);
+//===================1D=====================
+int *alloc_int_1d(size_t n1);
 /*< allocate a 1-d array of ints >*/
 
 
-int *realloc1int(int *v, size_t n1);
-/*< re-allocate a 1-d array of ints >*/
-
-
-void free1int(int *p);
-/*< free a 1-d array of ints >*/
-
-
-/* n1: fast dimension; n2: slow dimension */
-int **alloc2int(size_t n1, size_t n2);
-/*< allocate a 2-d array of ints >*/
-
-
-void free2int(int **p);
-/*< free a 2-d array of ints >*/
-
-
-int ***alloc3int(size_t n1, size_t n2, size_t n3);
-/*< allocate a 3-d array of ints >*/
-
-
-void free3int(int ***p);
-/*< free a 3-d array of ints >*/
-
-
-float *alloc1float(size_t n1);
+float *alloc_float_1d(size_t n1);
 /*< allocate a 1-d array of floats >*/
 
 
-float *realloc1float(float *v, size_t n1);
-/*< re-allocate a 1-d array of floats >*/
+double *alloc_double_1d(size_t n1);
+/*< allocate a 1-d array of double >*/
 
 
-void free1float(float *p);
+void free_int_1d(int *p);
+/*< free a 1-d array of ints >*/
+
+
+void free_float_1d(float *p);
 /*< free a 1-d array of floats >*/
 
 
-/* allocate a 2-d array of floats */
-float **alloc2float(size_t n1, size_t n2);
-/*<  n1: fast dimension; n2: slow dimension >*/
+void free_double_1d(double *p);
+/*< free a 1-d array of floats >*/
 
 
-void free2float(float **p);
+void zero_int_1d(int *a, int n1);
+/*<zero 1D int document>*/
+
+
+void zero_float_1d(float *a, int n1);
+/*<zero 1D float document>*/
+
+
+void zero_double_1d(double *a, int n1);
+/*<zero 1D double document>*/
+
+
+//===================2D=====================
+/* n1: fast dimension; n2: slow dimension */
+int **alloc_int_2d(size_t n1, size_t n2);
+/*< allocate a 2-d array of ints >*/
+
+
+float **alloc_float_2d(size_t n1, size_t n2);
+/*< allocate a 2-d array of float >*/
+
+
+double **alloc_double_2d(size_t n1, size_t n2);
+/*< allocate a 2-d array of double >*/
+
+
+void free_int_2d(int **p);
+/*< free a 2-d array of ints >*/
+
+
+void free_float_2d(float **p);
 /*< free a 2-d array of floats >*/
 
 
-float ***alloc3float(size_t n1, size_t n2, size_t n3);
+void free_double_2d(double **p);
+/*< free a 2-d array of floats >*/
+
+
+void zero_int_2d(int **a, int n1, int n2);
+/*<zero 2D int document n1 is the fast axis>*/
+
+
+void zero_float_2d(float **a, int n1, int n2);
+/*<zero 2D float document n1 is the fast axis>*/
+
+
+void zero_double_2d(double **a, int n1, int n2);
+/*<zero 2D double document n1 is the fast axis>*/
+
+
+//===================3D=====================
+int ***alloc_int_3d(size_t n1, size_t n2, size_t n3);
+/*< allocate a 3-d array of ints >*/
+
+
+float ***alloc_float_3d(size_t n1, size_t n2, size_t n3);
 /*< allocate a 3-d array of floats >*/
 
 
-void free3float(float ***p);
-/*< free a 3-d array of floats >*/
-
-
-float ****alloc4float(size_t n1, size_t n2, size_t n3, size_t n4);
-/*< allocate a 4-d array of floats, added by Zhaobo Meng, 1997 >*/
-
-
-void free4float(float ****p);
-/*< free a 4-d array of floats, added by Zhaobo Meng, 1997 >*/
-
-
-int ****alloc4int(size_t n1, size_t n2, size_t n3, size_t n4);
-/*< allocate a 4-d array of ints, added by Zhaobo Meng, 1997 >*/
-
-
-void free4int(int ****p);
-/*< free a 4-d array of ints, added by Zhaobo Meng, 1997 >*/
-
-
-unsigned char ****alloc4uchar(size_t n1, size_t n2, size_t n3, size_t n4);
-/*< allocate a 4-d array of chars, added by Cheng Jiubing >*/
-
-
-void free4uchar(unsigned char ****p);
-/*< free a 4-d array of chars, added by Cheng Jiubing >*/
-
-
-unsigned char ***alloc3uchar(size_t n1, size_t n2, size_t n3);
-/*< allocate a 3-d array of chars, added by Cheng Jiubing >*/
-
-
-void free3uchar(unsigned char ***p);
-/*< free a 3-d array of chars, added by Cheng Jiubing >*/
-
-
-unsigned char **alloc2uchar(size_t n1, size_t n2);
-/*< allocate a 2-d array of chars, added by Cheng Jiubing >*/
-
-
-void free2uchar(unsigned char **p);
-/*< free a 2-d array of chars, added by Cheng Jiubing >*/
-
-
-char **alloc2char(size_t n1, size_t n2);
-/*< allocate a 2-d array of chars, added by Cheng Jiubing >*/
-
-
-void free2char(char **p);
-/*< free a 2-d array of chars, added by Cheng Jiubing >*/
-
-
-unsigned char *alloc1uchar(size_t n1);
-/*< allocate a 1-d array of chars, added by Cheng Jiubing >*/
-
-
-void free1uchar(unsigned char *p);
-/*< free a 1-d array of chars, added by Cheng Jiubing >*/
-
-
-unsigned short ***alloc3ushort(size_t n1, size_t n2, size_t n3);
-/*< allocate a 3-d array of ints, added by Meng, 1997 >*/
-
-
-unsigned short **alloc2ushort(size_t n1, size_t n2);
-/*< allocate a 2-d array of ints, added by Meng, 1997 >*/
-
-
-void free3ushort(unsigned short ***p);
-/*< free a 3-d array of shorts, added by Zhaobo Meng, 1997 >*/
-
-
-void free2ushort(unsigned short **p);
-/*< free a 2-d array of shorts, added by Zhaobo Meng, 1997 >*/
-
-
-double *alloc1double(size_t n1);
-/*< allocate a 1-d array of doubles >*/
-
-
-double *realloc1double(double *v, size_t n1);
-/*< re-allocate a 1-d array of doubles >*/
-
-
-void free1double(double *p);
-/*< free a 1-d array of doubles >*/
-
-
-double **alloc2double(size_t n1, size_t n2);
-/*< allocate a 2-d array of doubles >*/
-
-
-void free2double(double **p);
-/*< free a 2-d array of doubles >*/
-
-
-double ***alloc3double(size_t n1, size_t n2, size_t n3);
+double ***alloc_double_3d(size_t n1, size_t n2, size_t n3);
 /*< allocate a 3-d array of doubles >*/
 
 
-void free3double(double ***p);
-/*< free a 3-d array of doubles >*/
-
-
-void *alloc1 (size_t n1, size_t size);
-/*< allocate a 1-d array >*/
-
-
-void *realloc1(void *v, size_t n1, size_t size);
-/*< re-allocate a 1-d array >*/
-
-
-void free1 (void *p);
-/*< free a 1-d array >*/
-
-
-void **alloc2 (size_t n1, size_t n2, size_t size);
-/*< allocate a 2-d array >*/
-
-
-void free2 (void **p);
-/*< free a 2-d array >*/
-
-
-void ***alloc3 (size_t n1, size_t n2, size_t n3, size_t size);
-/*< allocate a 3-d array >*/
-
-
-void free3 (void ***p);
-/*< free a 3-d array >*/
-
-
-void ****alloc4 (size_t n1, size_t n2, size_t n3, size_t n4, size_t size);
-/*< allocate a 4-d array >*/
-
-
-void free4 (void ****p);
-/*< free a 4-d array >*/
-
-
-int *alloc1int(size_t n1);
-/*< allocate a 1-d array of ints >*/
-
-
-int *realloc1int(int *v, size_t n1);
-/*< re-allocate a 1-d array of ints >*/
-
-
-void free1int(int *p);
-/*< free a 1-d array of ints >*/
-
-
-/* n1: fast dimension; n2: slow dimension */
-int **alloc2int(size_t n1, size_t n2);
-/*< allocate a 2-d array of ints >*/
-
-
-void free2int(int **p);
-/*< free a 2-d array of ints >*/
-
-
-int ***alloc3int(size_t n1, size_t n2, size_t n3);
-/*< allocate a 3-d array of ints >*/
-
-
-void free3int(int ***p);
+void free_int_3d(int ***p);
 /*< free a 3-d array of ints >*/
 
 
-float *alloc1float(size_t n1);
-/*< allocate a 1-d array of floats >*/
-
-
-float *realloc1float(float *v, size_t n1);
-/*< re-allocate a 1-d array of floats >*/
-
-
-void free1float(float *p);
-/*< free a 1-d array of floats >*/
-
-
-/* allocate a 2-d array of floats */
-float **alloc2float(size_t n1, size_t n2);
-/*<  n1: fast dimension; n2: slow dimension >*/
-
-
-void free2float(float **p);
-/*< free a 2-d array of floats >*/
-
-
-float ***alloc3float(size_t n1, size_t n2, size_t n3);
-/*< allocate a 3-d array of floats >*/
-
-
-void free3float(float ***p);
+void free_float_3d(float ***p);
 /*< free a 3-d array of floats >*/
 
 
-float ****alloc4float(size_t n1, size_t n2, size_t n3, size_t n4);
-/*< allocate a 4-d array of floats, added by Zhaobo Meng, 1997 >*/
+void free_double_3d(double ***p);
+/*< free a 3-d array of doubles >*/
 
 
-void free4float(float ****p);
-/*< free a 4-d array of floats, added by Zhaobo Meng, 1997 >*/
+void zero_int_3d(int ***a, int n1, int n2, int n3);
+/*<zero 2D int document n1 is the fast axis>*/
 
 
-int ****alloc4int(size_t n1, size_t n2, size_t n3, size_t n4);
-/*< allocate a 4-d array of ints, added by Zhaobo Meng, 1997 >*/
+void zero_float_3d(float ***a, int n1, int n2, int n3);
+/*<zero 2D float document n1 is the fast axis>*/
 
 
-void free4int(int ****p);
-/*< free a 4-d array of ints, added by Zhaobo Meng, 1997 >*/
+void zero_double_3d(double ***a, int n1, int n2, int n3);
+/*<zero 2D double document n1 is the fast axis>*/
 
 
-unsigned char ****alloc4uchar(size_t n1, size_t n2, size_t n3, size_t n4);
-/*< allocate a 4-d array of chars, added by Cheng Jiubing >*/
+FILE *sfopen(const char *fn, const char *stat);
+/*<safely open the files>*/
 
 
-void free4uchar(unsigned char ****p);
-/*< free a 4-d array of chars, added by Cheng Jiubing >*/
+void read_float_1d(const char *file, float *a, int nx);
+/*<write 1D float document>*/
 
 
-unsigned char ***alloc3uchar(size_t n1, size_t n2, size_t n3);
-/*< allocate a 3-d array of chars, added by Cheng Jiubing >*/
+void write_float_1d(const char *file, float *a, int nx);
+/*<write 1D float document>*/
 
 
-void free3uchar(unsigned char ***p);
-/*< free a 3-d array of chars, added by Cheng Jiubing >*/
+void read_float_2d(const char* file, float** a, int nx, int nz);
+/*<read 2D float document>*/
 
 
-unsigned char **alloc2uchar(size_t n1, size_t n2);
-/*< allocate a 2-d array of chars, added by Cheng Jiubing >*/
+void write_float_2d(const char* file, float** a, int nx, int nz);
+/*<write 2D float document>*/
 
 
-void free2uchar(unsigned char **p);
-/*< free a 2-d array of chars, added by Cheng Jiubing >*/
+void read_float_3d(const char* file, float*** a, int nx, int ny, int nz);
+/*<read 3D float document>*/
 
 
-char **alloc2char(size_t n1, size_t n2);
-/*< allocate a 2-d array of chars, added by Cheng Jiubing >*/
+void write_float_3d(const char* file, float*** a, int nx, int ny, int nz);
+/*<write 3D float document>*/
 
 
-void free2char(char **p);
-/*< free a 2-d array of chars, added by Cheng Jiubing >*/
+bool file_exists(char *filename);
+/*<Checking if a file with filename exists.>*/
 
 
-unsigned char *alloc1uchar(size_t n1);
-/*< allocate a 1-d array of chars, added by Cheng Jiubing >*/
+bool dir_exists(char *dirname);
+/*<Checking if a directory with dirname exists.>*/
 
 
-void free1uchar(unsigned char *p);
-/*< free a 1-d array of chars, added by Cheng Jiubing >*/
+unsigned long count_lines_of_file(const char *file_patch);
+/*<Returns number of lines in an ascii file.>*/
 
 
-unsigned short ***alloc3ushort(size_t n1, size_t n2, size_t n3);
-/*< allocate a 3-d array of ints, added by Meng, 1997 >*/
+int getnlines(char *filename);
+/*<Getting number of lines from file.>*/
 
 
-unsigned short **alloc2ushort(size_t n1, size_t n2);
-/*< allocate a 2-d array of ints, added by Meng, 1997 >*/
-
-
-void free3ushort(unsigned short ***p);
-/*< free a 3-d array of shorts, added by Zhaobo Meng, 1997 >*/
-
-
-void free2ushort(unsigned short **p);
-/*< free a 2-d array of shorts, added by Zhaobo Meng, 1997 >*/
-
-
-double *alloc1double(size_t n1);
-/*< allocate a 1-d array of doubles >*/
-
-
-double *realloc1double(double *v, size_t n1);
-/*< re-allocate a 1-d array of doubles >*/
-
-
-void free1double(double *p);
-/*< free a 1-d array of doubles >*/
+int num_digit(const int n);
+/*<Finding the number of digits in an integer using simple but efficient method.>*/
 
 
 void utils_print_title(const char *title);
 /*<Printing out program title to terminal.>*/
+
+
+void utils_loadbar(int x, int n, int r, int w);
+/*<Prints progress bar on terminal>*/
+
+
+float utils_max(const float *v, const int n);
+/*<Finding the maximum of a vector v with size n.>*/
+
+
+float utils_min(const float *v, const int n);
+/*<Finding the minimum of a vector v with size n.>*/
 
 #endif 

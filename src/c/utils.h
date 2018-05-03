@@ -7,4 +7,16 @@
 void utils_print_title(const char *title);
 /*<Printing out program title to terminal.>*/
 
+
+void utils_loadbar(int x, int n, int r, int w);
+/*<Prints progress bar on terminal>*/
+
+
+float utils_max(const float *v, const int n);
+/*<Finding the maximum of a vector v with size n.>*/
+
+
+float utils_min(const float *v, const int n);
+/*<Finding the minimum of a vector v with size n.>*/
+
 #endif
